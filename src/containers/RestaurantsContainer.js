@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
   deleteRestaurant: id => dispatch({ type: "DELETE_RESTAURANT", id})
 })
 
-export default RestaurantsContainer
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer);
