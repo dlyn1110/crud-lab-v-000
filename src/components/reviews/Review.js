@@ -16,7 +16,6 @@ class Review extends Component {
       </div>
     );
   }
-
 };
 
 export default Review;

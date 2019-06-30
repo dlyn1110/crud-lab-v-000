@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Reviews from './Reviews';
 
 class ReviewInput extends Component {
 
@@ -7,31 +6,31 @@ class ReviewInput extends Component {
     text: ''
   }
 
-  handleOnChange(event) {
+  handleOnChange = event => {
     this.setState({
-      text: event.target.value
-    })
-  }
-
-  handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.addReview(this.state.text, this.props.restaurantId);
-    this.setState({
-      text: '',
+      text: event.target.value,
     });
   }
 
+  handleOnSubmit = event => {
+    event.preventDefault();
+    const review = {
+      text: this.state.text,
+      restaurantId: this.props.restaurantId
+    }
+    this.props.addReview(review);
+    this.setState({
+      text: ''
+    });
+  }
 
   render() {
     return (
       <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <input
-            type="text"
-            value={this.state.text}
-            onChange={(event) => this.handleOnChange(event)} />
-          <input type="submit" />
-        </form>
+      <form onSubmit={this.handleOnSubmit}>
+        <input type="text" onChange={this.handleOnChange} value={this.state.text} />
+        <input type="submit"/>
+      </form>
       </div>
     );
   }
