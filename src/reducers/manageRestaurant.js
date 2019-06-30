@@ -35,8 +35,3 @@ export default function manageRestaurants(state = {
       return state;
   }
 };
-
-
-export default function manageRestaurants(state, action) {
-
-}
